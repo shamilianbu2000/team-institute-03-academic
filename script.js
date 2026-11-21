@@ -42,3 +42,16 @@
   }
   window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update();
 })();
+
+/* hide floating WhatsApp while primary buttons/form are on screen so it never covers them */
+(function(){
+  var wa=document.querySelector('.wa-float');
+  if(!wa||!('IntersectionObserver' in window))return;
+  var els=[].slice.call(document.querySelectorAll('.hero-actions,#enqForm button[type=submit],.sidebar .btn'));
+  var vis=new Set();
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting)vis.add(e.target);else vis.delete(e.target)});
+    wa.classList.toggle('wa-hide',vis.size>0&&window.innerWidth<=980);
+  });
+  els.forEach(function(e){io.observe(e)});
+})();
