@@ -29,6 +29,7 @@ img,svg,iframe{max-width:100%}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:2px;align-items:center}
 .nav a{display:block;padding:8px 9px;color:var(--navy);text-decoration:none;font-weight:600;font-size:.92rem;border-radius:3px}
 .nav a:hover{background:var(--sky)}
+.nav a.active:not(.nav-cta){background:var(--sky);color:var(--blue2);box-shadow:inset 0 -3px 0 var(--gold)}
 .nav .nav-cta{background:var(--blue);color:#fff;margin-left:6px}
 .nav .nav-cta:hover{background:var(--navy)}
 .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:4px;padding:10px;cursor:pointer}
